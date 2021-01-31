@@ -1,15 +1,10 @@
-function sendMail(contactForm) {
-    emailjs.send("gmail", "rosie", {
-        "from_name": contactForm.name.value,
-        "from_email": contactForm.emailaddress.value,
-        "project_request": contactForm.projectsummary.value
+emailjs.send('rosie2', 'template_ig7tosz',{
+        "from_name": name.value,
+        "from_email": emailaddress.value,
+        "project_request": projectsummary.value
     })
-    .then(
-        function(response) {
-            console.log("SUCCESS", response);
-        },
-        function(error) {
-            console.log("FAILED", error);
-        }
-    );
-    return false;  // To block from loading a new page
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
+    });
